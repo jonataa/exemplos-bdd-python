@@ -4,6 +4,16 @@ Estes exemplos foram utilizados durante a minha apresentação sobre BDD (Behavi
 ## Slides
 breve...
 
+## Pré-Requisitos
+* [Instalando o Lettuce](http://lettuce.it/intro/install.html)
+* [Instalando o pytest](http://pytest.org/latest/getting-started.html)
+
+Para instalar todas as dependências via ```pip```, apenas execute:
+
+```shell
+$ pip install -r requirements.txt
+```
+
 ## Introdução ao pytest
 breve...
 
