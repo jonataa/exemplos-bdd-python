@@ -1,4 +1,8 @@
 # Exemplos: Python + BDD
+Estes exemplos foram utilizados durante a minha apresentação sobre BDD (Behavior Driven Development) com Python.
+
+## Slides
+breve...
 
 ## Cenários
 
