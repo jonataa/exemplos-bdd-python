@@ -41,7 +41,7 @@ inferiores a 20 reais somente dinheiro.
 ## Executando os testes unitários
 Uma vez que esteja com o ```pytest``` instalado, apenas digite:
 ```shell
-$ py.test tests/test_estoque.py
+$ py.test tests/units/test_estoque.py
 
 ============================= test session starts ==============================
 platform darwin -- Python 2.7.6 -- py-1.4.30 -- pytest-2.7.2
@@ -53,7 +53,7 @@ tests/test_estoque.py ..x
 ===================== 2 passed, 1 xfailed in 0.02 seconds ======================
 ```
 ```shell
-$ py.test tests/test_venda.py
+$ py.test tests/units/test_venda.py
 
 ============================= test session starts ==============================
 platform darwin -- Python 2.7.6 -- py-1.4.30 -- pytest-2.7.2
