@@ -2,7 +2,7 @@
 Estes exemplos foram utilizados durante a minha apresentação sobre BDD (Behavior Driven Development) com Python.
 
 ## Slides
-breve...
+[![Slides da Aprensentação](capa_slide.png)](https://speakerdeck.com/jonataa/desenvolvendo-software-de-qualidade)
 
 ## Pré-Requisitos
 * [Instalando o Lettuce](http://lettuce.it/intro/install.html)
@@ -13,9 +13,6 @@ Para instalar todas as dependências via ```pip```, apenas execute:
 ```shell
 $ pip install -r requirements.txt
 ```
-
-## Introdução ao pytest
-breve...
 
 ## Cenários
 
@@ -47,6 +44,36 @@ Cenário: Venda com cartão indisponível para valores abaixo de 20,00.
 **Então** a venda não é registrada  
   **E** é exibida na tela a mensagem "Meio de pagamento inválido! Para valores
 inferiores a 20 reais somente dinheiro.  
+
+## Executandos os testes comportamentais
+Uma vez que esteja com o ```Letucce```instalado corretamente, apenas digite:
+
+```shell
+$ lettuce tests/bdd
+```
+Resultado esperado:
+```
+Funcionalidade: Realizar uma venda                         # tests/bdd/realizar_venda.feature:3
+  Sendo um funcionário do caixa                            # tests/bdd/realizar_venda.feature:4
+  Posso realizar uma venda                                 # tests/bdd/realizar_venda.feature:5
+  Para que eu possa faturar e liberar os clientes          # tests/bdd/realizar_venda.feature:6
+
+  Cenário: Estoque disponível.                             # tests/bdd/realizar_venda.feature:8
+    Dado que o estoque da coca-cola é de 50 unidades       # tests/bdd/steps.py:    Dado que o estoque da coca-cola é de 50 unidades       # tests/bdd/steps.py:10
+    Quando informo uma venda de 40 unidades                # tests/bdd/steps.py:    Quando informo uma venda de 40 unidades                # tests/bdd/steps.py:16
+    Então a venda é registrada                             # tests/bdd/steps.py:    Então a venda é registrada                             # tests/bdd/steps.py:22
+    E o estoque passa a ser de 10 unidades                 # tests/bdd/steps.py:    E o estoque passa a ser de 10 unidades                 # tests/bdd/steps.py:26
+
+  Cenário: Estoque Indisponível.                           # tests/bdd/realizar_venda.feature:14
+    Dado que o estoque da coca-cola é de 50 unidades       # tests/bdd/steps.py:    Dado que o estoque da coca-cola é de 50 unidades       # tests/bdd/steps.py:10
+    Quando informo uma venda de 60 unidades                # tests/bdd/steps.py:    Quando informo uma venda de 60 unidades                # tests/bdd/steps.py:31
+    Então a venda não é registrada                         # tests/bdd/steps.py:    Então a venda não é registrada                         # tests/bdd/steps.py:40
+    E é exibida na tela a mensagem "estoque insuficiente!" # tests/bdd/steps.py:    E é exibida na tela a mensagem "estoque insuficiente!" # tests/bdd/steps.py:44
+
+1 feature (1 passed)
+2 scenarios (2 passed)
+8 steps (8 passed)
+```
 
 ## Executando os testes unitários
 Uma vez que esteja com o ```pytest``` instalado, apenas digite:
