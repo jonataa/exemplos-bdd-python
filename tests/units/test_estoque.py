@@ -69,7 +69,7 @@ class TestEstoque(object):
         """
         # criando o produto
         cocacola = Produto(codigo=13, nome='Coca-cola', preco=5.20)
-
+    
         # preparando o estoque
         estoque = Estoque()
         estoque.add_produto(produto=cocacola, quantidade=50)

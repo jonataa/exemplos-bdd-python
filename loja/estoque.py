@@ -8,21 +8,28 @@ class EstoqueInsuficienteError(Exception):
 
 class EstoqueItem(object):
 
-    def __init__(self, produto, qtd):
+    def __init__(self, produto, quantidade):
         self.produto = produto
-        self.qtd = qtd
+        self.quantidade = quantidade
+
+    def quantos(self):
+        return self.quantidade
 
 class Estoque(object):
 
-    estoque = {}
+    itens = {}
 
     def add_produto(self, produto, quantidade):
-        self.estoque[produto.codigo] = EstoqueItem(produto, quantidade)
+        self.itens[produto.codigo] = EstoqueItem(produto, quantidade)
 
-    def retirar(self, produto, qtd):
-        if self.quantos(produto.codigo) < qtd:
+    def retirar(self, produto, quantidade):
+        item = self[produto.codigo]
+        if quantidade > item.quantos():
             raise EstoqueInsuficienteError()
-        self.estoque[produto.codigo].qtd -= qtd
+        item.quantidade -= quantidade
 
     def quantos(self, produto_codigo):
-        return self.estoque[produto_codigo].qtd
+        return self[produto_codigo].quantos()
+
+    def __getitem__(self, key):
+        return self.itens[key]
